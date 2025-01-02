@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ip3 TON NFT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP3 TON NFT</title>
     <style>
         * {
             margin: 0;
@@ -11,213 +11,213 @@
             box-sizing: border-box;
         }
 
-        body { 
-            background: #000000; 
-            margin: 0; 
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
         }
 
-        @keyframes goldenGlow {
-            0% { color: #FFD700; text-shadow: 0 0 5px #FFD700; }
-            50% { color: #FFA500; text-shadow: 0 0 15px #FFA500; }
-            100% { color: #FFD700; text-shadow: 0 0 5px #FFD700; }
-        }
-
-        .top-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .top-button {
-            padding: 15px 10px;
-            border-radius: 8px;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
+        .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 50px;
-            line-height: 1.2;
+            padding: 1.5rem 2rem;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 0.5rem;
+            background-color: rgba(17, 17, 17, 0.8);
+            padding: 0.5rem;
+            border-radius: 12px;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            width: 300px;
+            outline: none;
+        }
+
+        .search-btn {
+            background-color: #3898ff;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            padding: 0.5rem 1rem;
             cursor: pointer;
-        }
-
-        .diamonds-btn {
-            background: linear-gradient(45deg, #0088CC, #00A3FF);
-        }
-
-        .casino-btn {
-            background: linear-gradient(45deg, #FFD700, #800080);
-        }
-
-        .wcoin-btn {
-            background: linear-gradient(45deg, #FFD700, #FFFFFF);
-            color: black;
         }
 
         .video-container {
             width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            background: #000;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
         }
 
-        .video-container video {
+        video {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: cover;
         }
-        
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .action-button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+
+        .blue-button {
+            background: #3898ff;
+        }
+
+        .yellow-button {
+            background: #ffd700;
+            color: black;
+        }
+
         .nft-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background-color: #0a0a0a;
         }
-        
+
         .nft-card {
-            background: #111;
-            border-radius: 8px;
+            background-color: #111111;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #222;
+            transition: transform 0.2s;
+            border: 1px solid #2a2a2a;
         }
-        
+
+        .nft-card:hover {
+            transform: translateY(-5px);
+        }
+
         .nft-image {
             width: 100%;
             aspect-ratio: 1;
-            background: #1a1a1a;
             overflow: hidden;
-            position: relative;
         }
-        
+
         .nft-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
-        
+
         .nft-info {
-            padding: 8px;
+            padding: 1rem;
         }
-        
+
         .nft-title {
-            color: white;
-            font-size: 14px;
-            margin-bottom: 4px;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .nft-badge {
-            font-weight: bold;
-            animation: goldenGlow 2s infinite;
+            background: #3898ff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
         }
-        
+
         .nft-price {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
-        }
-        
-        .price-amount {
-            color: #00A3FF;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        .ton-badge {
-            background: #00A3FF;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 12px;
-            text-decoration: none;
-        }
-        
-        .learn-more-btn {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            background: #00A3FF;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 14px;
-            border: none;
-            cursor: pointer;
+            margin-bottom: 1rem;
         }
 
-        .bottom-video {
-            margin-top: 10px;
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3898ff;
+        }
+
+        .ton-badge {
+            background: #ffd700;
+            color: black;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .search-bar input {
+                width: 200px;
+            }
+
             .nft-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 6px;
-                padding: 6px;
-            }
-            
-            .nft-info {
-                padding: 6px;
-            }
-            
-            .nft-title {
-                font-size: 12px;
-            }
-            
-            .price-amount {
-                font-size: 16px;
-            }
-            
-            .ton-badge {
-                font-size: 10px;
-                padding: 3px 6px;
-            }
-            
-            .learn-more-btn {
-                font-size: 12px;
-                padding: 6px;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="top-grid">
-        <a href="https://ton.diamonds" class="top-button diamonds-btn">
-            Visit TON Diamonds
-        </a>
-        <a href="http://www.ip3.one" class="top-button casino-btn">
-            IP3.ONE Casino
-        </a>
-        <a href="https://wallet.ton.org/" class="top-button wcoin-btn">
-            購買 IP3 WCOIN
-        </a>
-    </div>
+    <nav class="navbar">
+        <div class="logo">IP3 NFT</div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜尋 NFT...">
+            <button class="search-btn">搜尋</button>
+        </div>
+    </nav>
 
     <div class="video-container">
-        <video width="100%" height="auto" autoplay loop muted playsinline>
-            <source src="video.mp4" type="video/mp4">
+        <video autoplay loop muted playsinline>
+            <source src="影片副本.mp4" type="video/mp4">
         </video>
+    </div>
+
+    <div class="button-container">
+        <a href="https://wallet.ton.org/" class="action-button blue-button">Visit TON Diamonds</a>
+        <a href="https://wallet.ton.org/" class="action-button yellow-button">IP3.ONE Casino</a>
+        <a href="https://wallet.ton.org/" class="action-button yellow-button">購買 IP3 WCOIN</a>
     </div>
 
     <div class="nft-grid">
         <div class="nft-card">
             <div class="nft-image">
-                <img src="./nft1.jpg" alt="NFT 1" onerror="this.style.display='none'">
+                <img src="nft1.jpg" alt="NFT 1">
             </div>
             <div class="nft-info">
                 <div class="nft-title">
@@ -225,16 +225,16 @@
                     <span class="nft-badge">NFT</span>
                 </div>
                 <div class="nft-price">
-                    <span class="price-amount">2,800</span>
+                    <span class="price-amount">3,300</span>
                     <a href="https://wallet.ton.org/" class="ton-badge">TON</a>
                 </div>
-                <a href="https://wallet.ton.org/" class="learn-more-btn">連接錢包購買</a>
+                <a href="https://wallet.ton.org/" class="action-button blue-button">連接錢包購買</a>
             </div>
         </div>
 
         <div class="nft-card">
             <div class="nft-image">
-                <img src="./nft2.jpg" alt="NFT 2" onerror="this.style.display='none'">
+                <img src="nft2.jpg" alt="NFT 2">
             </div>
             <div class="nft-info">
                 <div class="nft-title">
@@ -242,16 +242,16 @@
                     <span class="nft-badge">NFT</span>
                 </div>
                 <div class="nft-price">
-                    <span class="price-amount">3,100</span>
+                    <span class="price-amount">3,000</span>
                     <a href="https://wallet.ton.org/" class="ton-badge">TON</a>
                 </div>
-                <a href="https://wallet.ton.org/" class="learn-more-btn">連接錢包購買</a>
+                <a href="https://wallet.ton.org/" class="action-button blue-button">連接錢包購買</a>
             </div>
         </div>
 
         <div class="nft-card">
             <div class="nft-image">
-                <img src="./nft3.jpg" alt="NFT 3" onerror="this.style.display='none'">
+                <img src="nft3.jpg" alt="NFT 3">
             </div>
             <div class="nft-info">
                 <div class="nft-title">
@@ -262,13 +262,21 @@
                     <span class="price-amount">3,200</span>
                     <a href="https://wallet.ton.org/" class="ton-badge">TON</a>
                 </div>
-                <a href="https://wallet.ton.org/" class="learn-more-btn">連接錢包購買</a>
+                <a href="https://wallet.ton.org/" class="action-button blue-button">連接錢包購買</a>
             </div>
         </div>
+    </div>
 
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="視頻.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="nft-grid">
         <div class="nft-card">
             <div class="nft-image">
-                <img src="./nft4.jpg" alt="NFT 4" onerror="this.style.display='none'">
+                <img src="nft4.jpg" alt="NFT 4">
             </div>
             <div class="nft-info">
                 <div class="nft-title">
@@ -276,16 +284,16 @@
                     <span class="nft-badge">NFT</span>
                 </div>
                 <div class="nft-price">
-                    <span class="price-amount">2,900</span>
+                    <span class="price-amount">3,400</span>
                     <a href="https://wallet.ton.org/" class="ton-badge">TON</a>
                 </div>
-                <a href="https://wallet.ton.org/" class="learn-more-btn">連接錢包購買</a>
+                <a href="https://wallet.ton.org/" class="action-button blue-button">連接錢包購買</a>
             </div>
         </div>
 
         <div class="nft-card">
             <div class="nft-image">
-                <img src="./nft5.jpg" alt="NFT 5" onerror="this.style.display='none'">
+                <img src="nft5.jpg" alt="NFT 5">
             </div>
             <div class="nft-info">
                 <div class="nft-title">
@@ -296,13 +304,13 @@
                     <span class="price-amount">3,300</span>
                     <a href="https://wallet.ton.org/" class="ton-badge">TON</a>
                 </div>
-                <a href="https://wallet.ton.org/" class="learn-more-btn">連接錢包購買</a>
+                <a href="https://wallet.ton.org/" class="action-button blue-button">連接錢包購買</a>
             </div>
         </div>
 
         <div class="nft-card">
             <div class="nft-image">
-                <img src="./nft6.jpg" alt="NFT 6" onerror="this.style.display='none'">
+                <img src="nft6.jpg" alt="NFT 6">
             </div>
             <div class="nft-info">
                 <div class="nft-title">
@@ -313,14 +321,14 @@
                     <span class="price-amount">3,000</span>
                     <a href="https://wallet.ton.org/" class="ton-badge">TON</a>
                 </div>
-                <a href="https://wallet.ton.org/" class="learn-more-btn">連接錢包購買</a>
+                <a href="https://wallet.ton.org/" class="action-button blue-button">連接錢包購買</a>
             </div>
         </div>
     </div>
 
-    <div class="video-container bottom-video">
-        <video width="100%" height="auto" autoplay loop muted playsinline>
-            <source src="video副本.mp4" type="video/mp4">
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="視頻.mp4" type="video/mp4">
         </video>
     </div>
 </body>
